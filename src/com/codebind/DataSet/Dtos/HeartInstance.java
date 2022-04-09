@@ -16,7 +16,7 @@ public class HeartInstance {
                          double oldpeak,
                          double slp,
                          double caa,
-                         double thall) {
+                         double thall ) {
         this.age = age;
         this.sex = sex;
         this.cp = cp;

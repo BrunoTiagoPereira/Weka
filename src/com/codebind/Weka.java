@@ -42,15 +42,12 @@ public class Weka {
 
         Instance newInst = getWekaInstanceFromHeartInstance(toClassify);
 
-        var classIndex = toClassify.getNumAttributes();
-
         var result = new J48Result();
         result.tree = tree;
         result.correctInstances = evaluation.correct();
         result.classPredict = getPredictedClass(tree,newInst);
 
-        var teste = evaluation.truePositiveRate(classIndex);
-        result.precision = getPrecision(evaluation.truePositiveRate(classIndex), evaluation.falsePositiveRate(classIndex));
+        result.precision = getPrecision(evaluation.truePositiveRate(1), evaluation.falsePositiveRate(1));
         return result;
     }
 
@@ -63,14 +60,12 @@ public class Weka {
         crossEvaluation = new Evaluation(instances);
         crossEvaluation.crossValidateModel(tree,instances,10,new Random(1));
 
-        var classIndex = toClassify.getNumAttributes();
-
         var result = new J48Result();
 
         result.tree = tree;
         result.correctInstances = crossEvaluation.correct();
         result.classPredict = getPredictedClass(tree,newInst);
-        //result.precision = getPrecision(crossEvaluation.truePositiveRate(classIndex), crossEvaluation.falsePositiveRate(classIndex));
+        result.precision = getPrecision(crossEvaluation.truePositiveRate(1), crossEvaluation.falsePositiveRate(1));
 
         return result;
     }
@@ -87,12 +82,9 @@ public class Weka {
         evaluation = new Evaluation(instances);
         evaluation.evaluateModel(k3, instances);
 
-        var classIndex = toClassify.getNumAttributes();
-
-
         var result = new IBKResult();
         result.classPredict = predictedClass;
-        //result.precision = getPrecision(evaluation.truePositiveRate(classIndex), evaluation.falsePositiveRate(classIndex));
+        result.precision = getPrecision(evaluation.truePositiveRate(1), evaluation.falsePositiveRate(1));
 
         return result;
     }

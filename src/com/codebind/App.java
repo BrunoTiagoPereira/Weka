@@ -18,7 +18,7 @@ public class App extends JFrame {
     }
 
     public static void main(String[] args){
-        InitUiElements();
+        //InitUiElements();
 
         filePath = "C:\\Users\\bruno\\Downloads\\heart.arff";
         Weka dt = new Weka(filePath);
@@ -33,7 +33,10 @@ public class App extends JFrame {
             System.out.println( dt.IBK(heartInstance));
 
         }
-        catch (Exception e){ }
+        catch (Exception e){
+
+            System.out.println(e);
+        }
 
 
 
