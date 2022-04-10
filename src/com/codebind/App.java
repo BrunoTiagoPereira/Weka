@@ -1,25 +1,41 @@
 package com.codebind;
 
-import com.codebind.DataSet.Dtos.HeartInstance;
-
 import javax.swing.*;
 
 public class App extends JFrame {
-    private JPanel MainPanel;
-
     private static String filePath;
+
+    public App(){
+
+    }
+    public JPanel MainPanel;
+    private JLabel formTitle;
+    private  JTextField ageTxt;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JComboBox comboBox1;
+
+
+    private static JPanel currentPanel;
 
     private static void InitUiElements(){
         JFrame f = new JFrame();
-        f.setContentPane(new App().MainPanel);
+
+        var app = new App();
+        var panel = app.MainPanel;
+        currentPanel = panel;
+        f.setContentPane(panel);
+
+        f.setSize(1200, 720);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
-        f.pack();
     }
 
     public static void main(String[] args){
-        //InitUiElements();
+        InitUiElements();
 
+        /*
         filePath = "C:\\Users\\bruno\\Downloads\\heart.arff";
         Weka dt = new Weka(filePath);
 
@@ -37,6 +53,8 @@ public class App extends JFrame {
 
             System.out.println(e);
         }
+        */
+
 
 
 

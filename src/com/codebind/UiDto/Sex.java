@@ -1,2 +1,5 @@
-package com.codebind.UiDto;public class Sex {
+package com.codebind.UiDto;
+
+public class Sex {
+
 }
