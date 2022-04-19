@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class App extends JFrame {
     private static String filePath;
@@ -45,16 +44,20 @@ public class App extends JFrame {
                 instance.thall = Double.parseDouble(thalachTxt.getText());
                 //63,1,3,145,233,1,0,150,0,2.3,0,0,1
 
+
+
                 try{
                     dt.readData();
-                    System.out.println( dt.J48(instance));
-                    System.out.println( dt.J48CrossEvaluation(instance));
-                    System.out.println( dt.IBK(instance));
+                    var J48Result =  dt.J48(instance);
+                    var J48CrossEvaluationResult = dt.J48CrossEvaluation(instance);
+                    var IBKResult = dt.IBK(instance);
 
+                    J48Lbl.setText("Precisão: " + J48Result.precision + " " + "Previsão: " + J48Result.classPredict);
+                    J48CrossEvaluationLbl.setText("Precisão: " + J48CrossEvaluationResult.precision + " " + "Previsão: " + J48CrossEvaluationResult.classPredict);
+                    IBKLbl.setText("Precisão: " + IBKResult.precision + " " + "Previsão: " + IBKResult.classPredict);
                 }
                 catch (Exception ex){
-
-                    System.out.println(ex);
+                    JOptionPane.showMessageDialog(null,ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 }
 
             }
@@ -77,6 +80,9 @@ public class App extends JFrame {
     private JComboBox caaCmb;
     private JComboBox thallCmb;
     private JButton submitButton;
+    private JLabel J48Lbl;
+    private JLabel J48CrossEvaluationLbl;
+    private JLabel IBKLbl;
 
 
     private static JPanel currentPanel;
