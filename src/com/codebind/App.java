@@ -41,9 +41,7 @@ public class App extends JFrame {
                 instance.oldpeak = Double.parseDouble(oldpeakTxt.getText());
                 instance.slp = Double.parseDouble(slpCmb.getSelectedItem().toString());
                 instance.caa = Double.parseDouble(caaCmb.getSelectedItem().toString());
-                instance.thall = Double.parseDouble(thalachTxt.getText());
-                //63,1,3,145,233,1,0,150,0,2.3,0,0,1
-
+                instance.thall = Double.parseDouble(thallCmb.getSelectedItem().toString());
 
 
                 try{
@@ -52,14 +50,19 @@ public class App extends JFrame {
                     var J48CrossEvaluationResult = dt.J48CrossEvaluation(instance);
                     var IBKResult = dt.IBK(instance);
 
-                    J48Lbl.setText("Precisão: " + J48Result.precision + " " + "Previsão: " + J48Result.classPredict);
-                    J48CrossEvaluationLbl.setText("Precisão: " + J48CrossEvaluationResult.precision + " " + "Previsão: " + J48CrossEvaluationResult.classPredict);
-                    IBKLbl.setText("Precisão: " + IBKResult.precision + " " + "Previsão: " + IBKResult.classPredict);
+                    J48PrecisionLbl.setText("Precisão: " + J48Result.precision);
+                    J48PredictLbl.setText("Previsão: " + J48Result.classPredict);
+
+                    J48CrossPrecisionLbl.setText("Precisão: " + J48CrossEvaluationResult.precision);
+                    J48CrossPredictLbl.setText("Previsão: " + J48CrossEvaluationResult.classPredict);
+
+                    IBKPrecisionLbl.setText("Precisão: " + IBKResult.precision);
+                    IBKPredictLbl.setText("Previsão: " + IBKResult.classPredict);
+
                 }
                 catch (Exception ex){
                     JOptionPane.showMessageDialog(null,ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
     }
@@ -80,9 +83,12 @@ public class App extends JFrame {
     private JComboBox caaCmb;
     private JComboBox thallCmb;
     private JButton submitButton;
-    private JLabel J48Lbl;
-    private JLabel J48CrossEvaluationLbl;
-    private JLabel IBKLbl;
+    private JLabel J48PredictLbl;
+    private JLabel J48PrecisionLbl;
+    private JLabel J48CrossPrecisionLbl;
+    private JLabel J48CrossPredictLbl;
+    private JLabel IBKPrecisionLbl;
+    private JLabel IBKPredictLbl;
 
 
     private static JPanel currentPanel;
@@ -105,29 +111,6 @@ public class App extends JFrame {
     public static void main(String[] args){
         InitUiElements();
         filePath = "C:\\Users\\bruno\\Downloads\\heart.arff";
-        /*
-        filePath = "C:\\Users\\bruno\\Downloads\\heart.arff";
-        Weka dt = new Weka(filePath);
-
-        var heartInstance = new HeartInstance(63,1,3,145,233,1,0,150,0,2.3,0,0,1);
-        //63,1,3,145,233,1,0,150,0,2.3,0,0,1
-
-        try{
-            dt.readData();
-            System.out.println( dt.J48(heartInstance));
-            System.out.println( dt.J48CrossEvaluation(heartInstance));
-            System.out.println( dt.IBK(heartInstance));
-
-        }
-        catch (Exception e){
-
-            System.out.println(e);
-        }
-        */
-
-
-
-
     }
 
 
@@ -190,6 +173,7 @@ public class App extends JFrame {
     private boolean isNullOrEmpty(String str){
         return str == null || str.isBlank() || str.isEmpty();
     }
+
     private boolean hasLetters(String str){
 
         String regex = "^\\d+(\\.\\d+)*$";
@@ -199,9 +183,5 @@ public class App extends JFrame {
         boolean onlyNumbers = matcher.matches();
 
         return !onlyNumbers;
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }
