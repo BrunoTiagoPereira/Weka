@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.codebind.App">
-  <grid id="615a" binding="MainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="615a" binding="MainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="726" height="400"/>
@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="938a4" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="938a4" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -67,12 +67,17 @@
                   <text value="Sex"/>
                 </properties>
               </component>
-              <component id="fdd16" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+              <component id="fdd16" class="javax.swing.JComboBox" binding="sexCmb">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <editable value="true"/>
+                  <editable value="false"/>
+                  <model>
+                    <item value="0"/>
+                    <item value="1"/>
+                  </model>
+                  <toolTipText value=""/>
                 </properties>
               </component>
             </children>
@@ -96,13 +101,20 @@
                   <toolTipText value=""/>
                 </properties>
               </component>
-              <component id="a53ca" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+              <component id="52462" class="javax.swing.JComboBox" binding="cpCmb">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                  <model>
+                    <item value="1"/>
+                    <item value="2"/>
+                    <item value="3"/>
+                    <item value="4"/>
+                  </model>
+                  <toolTipText value=""/>
+                </properties>
               </component>
             </children>
           </grid>
@@ -111,7 +123,9 @@
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <toolTipText value="Pressão do sangue descansando (mm/HG)"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="3439f" class="javax.swing.JLabel">
@@ -122,7 +136,7 @@
                   <text value="Trtbps"/>
                 </properties>
               </component>
-              <component id="cb46c" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+              <component id="cb46c" class="javax.swing.JTextField" binding="trtbpsTxt">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -137,7 +151,9 @@
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <toolTipText value="Colesterol em mg/dl encontrado pelo sensor BMI"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="bd9b2" class="javax.swing.JLabel">
@@ -148,7 +164,7 @@
                   <text value="Chol"/>
                 </properties>
               </component>
-              <component id="c8437" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+              <component id="c8437" class="javax.swing.JTextField" binding="cholTxt">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -171,7 +187,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Açúcar no sangue em jejum &gt; 120 mg/dl"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="ae590" class="javax.swing.JLabel">
@@ -182,13 +200,16 @@
                       <text value="FBS"/>
                     </properties>
                   </component>
-                  <component id="a6b98" class="javax.swing.JTextField" default-binding="true">
+                  <component id="17c15" class="javax.swing.JComboBox" binding="fbsCmb">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="0"/>
+                        <item value="1"/>
+                      </model>
+                    </properties>
                   </component>
                 </children>
               </grid>
@@ -207,7 +228,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Resultados eletrocardiográficos em repouso"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="142a1" class="javax.swing.JLabel">
@@ -218,13 +241,17 @@
                       <text value="Rest Ecg"/>
                     </properties>
                   </component>
-                  <component id="2f24f" class="javax.swing.JTextField" default-binding="true">
+                  <component id="e650e" class="javax.swing.JComboBox" binding="restEcgCmb">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="0"/>
+                        <item value="1"/>
+                        <item value="2"/>
+                      </model>
+                    </properties>
                   </component>
                 </children>
               </grid>
@@ -243,7 +270,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Máximo de ritmo alcançado pelo coração"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="6f40e" class="javax.swing.JLabel">
@@ -254,7 +283,7 @@
                       <text value="Thalach"/>
                     </properties>
                   </component>
-                  <component id="a1e0e" class="javax.swing.JTextField" default-binding="true">
+                  <component id="a1e0e" class="javax.swing.JTextField" binding="thalachTxt">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -279,7 +308,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Angina induzida por exercício"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="51e3f" class="javax.swing.JLabel">
@@ -290,13 +321,16 @@
                       <text value="Exng"/>
                     </properties>
                   </component>
-                  <component id="a33db" class="javax.swing.JTextField" default-binding="true">
+                  <component id="4da61" class="javax.swing.JComboBox" binding="exngCmb">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="0"/>
+                        <item value="1"/>
+                      </model>
+                    </properties>
                   </component>
                 </children>
               </grid>
@@ -315,7 +349,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Depressão do segmento ST induzida pelo exercício em relação ao repouso"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="f4c28" class="javax.swing.JLabel">
@@ -326,7 +362,7 @@
                       <text value="Oldpeak"/>
                     </properties>
                   </component>
-                  <component id="61576" class="javax.swing.JTextField" default-binding="true">
+                  <component id="61576" class="javax.swing.JTextField" binding="oldpeakTxt">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -351,7 +387,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Inclinação do pico do exercício de segmento ST"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="25ad8" class="javax.swing.JLabel">
@@ -362,13 +400,17 @@
                       <text value="SLP"/>
                     </properties>
                   </component>
-                  <component id="da34a" class="javax.swing.JTextField" default-binding="true">
+                  <component id="98dcd" class="javax.swing.JComboBox" binding="slpCmb">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="0"/>
+                        <item value="1"/>
+                        <item value="2"/>
+                      </model>
+                    </properties>
                   </component>
                 </children>
               </grid>
@@ -387,7 +429,9 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <toolTipText value="Número de vasos principais (0-3) coloridos por fluoroscopia"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="534aa" class="javax.swing.JLabel">
@@ -398,13 +442,18 @@
                       <text value="CAA"/>
                     </properties>
                   </component>
-                  <component id="c0d4c" class="javax.swing.JTextField" default-binding="true">
+                  <component id="c8f52" class="javax.swing.JComboBox" binding="caaCmb">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="0"/>
+                        <item value="1"/>
+                        <item value="2"/>
+                        <item value="3"/>
+                      </model>
+                    </properties>
                   </component>
                 </children>
               </grid>
@@ -424,7 +473,9 @@
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <toolTipText value="Resultado do teste de estresse de tálio"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="45913" class="javax.swing.JLabel">
@@ -435,18 +486,30 @@
                   <text value="Thall"/>
                 </properties>
               </component>
-              <component id="a5b73" class="javax.swing.JTextField" default-binding="true">
+              <component id="5a787" class="javax.swing.JComboBox" binding="thallCmb">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="1"/>
+                    <item value="2"/>
+                    <item value="3"/>
+                  </model>
+                </properties>
               </component>
             </children>
           </grid>
         </children>
       </grid>
+      <component id="40ba4" class="javax.swing.JButton" binding="submitButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Submit"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
